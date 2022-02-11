@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from ckeditor.fields import RichTextField
+from simple_history.models import HistoricalRecords
 
 User = get_user_model()
 
@@ -29,6 +30,9 @@ CUSTOMER_STATUS_CHOICES = (
         ('Customer', 'Customer')
     )
 
+class CustomerChangeUser(models.Model):
+    user_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
 class Customer(models.Model):
     first_name = models.CharField(max_length=40)
     middle_name = models.CharField(max_length=40, null=True, blank=True)
@@ -46,9 +50,8 @@ class Customer(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     agent = models.ForeignKey(Agent, related_name="Agent", null=True, blank=True, on_delete=models.SET_NULL)
-
+    changed_by = models.ForeignKey(CustomerChangeUser, on_delete=models.SET_NULL, null=True, blank=True)
+    history = HistoricalRecords()
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-
