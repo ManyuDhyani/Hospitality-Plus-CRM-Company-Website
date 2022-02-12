@@ -39,11 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'ckeditor_uploader',
     'user_visit',
     'simple_history',
 
     'CRM',
 ]
+
+CKEDITOR_UPLOAD_PATH ="TraveloftIndiaMedia/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
@@ -129,10 +132,10 @@ STATICFILES_DIRS = [
     BASE_DIR/'static_in_env'
 ]
 
-STATIC_ROOT = BASE_DIR/'/static'
+STATIC_ROOT = BASE_DIR/'static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR/'media_root'
+MEDIA_ROOT = BASE_DIR/'media/'
 
 
 #AUTH_USER_MODEL = 'CRM.User'

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from simple_history.models import HistoricalRecords
 
 User = get_user_model()
@@ -46,7 +46,7 @@ class Customer(models.Model):
     converted_date = models.CharField(max_length=40, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     profile_picture = models.ImageField(null=True, blank=True, upload_to="profile_pictures/")
-    customer_details = RichTextField(null=True, blank=True)
+    customer_details = RichTextUploadingField(null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     agent = models.ForeignKey(Agent, related_name="Agent", null=True, blank=True, on_delete=models.SET_NULL)
