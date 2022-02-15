@@ -44,7 +44,7 @@ class Customer(models.Model):
     middle_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40)
     age = models.IntegerField(default=0, null=True, blank=True)
-    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default='Unknown')
     number_of_calls = models.IntegerField(default=0, null=True, blank=True)
     category = models.ManyToManyField(Category)
     phone_number = models.CharField(max_length=20, null=True, blank=True)
