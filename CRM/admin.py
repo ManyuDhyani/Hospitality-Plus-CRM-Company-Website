@@ -6,10 +6,10 @@ admin.site.register(Category)
 admin.site.register(Agent)
 
 class CustomerAdmin(SimpleHistoryAdmin):
-    list_display = ['first_name', 'last_name', 'age', 'phone_number', 'email', 'date_added']
+    list_display = ['first_name', 'last_name', 'age', 'gender', 'phone_number', 'email', 'date_added']
     list_display_links = ['first_name']
-    list_editable = ['email', 'phone_number']
-    list_filter = ['category']
+    #list_editable = ['email', 'phone_number']
+    list_filter = ['agent', 'category']
     search_fields = ['first_name', 'last_name', 'email']
     exclude = ('changed_by',)
 

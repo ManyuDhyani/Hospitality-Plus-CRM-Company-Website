@@ -30,6 +30,12 @@ CUSTOMER_STATUS_CHOICES = (
         ('Customer', 'Customer')
     )
 
+GENDER_CHOICES = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Unknown', 'Unknown')
+    )
+
 class CustomerChangeUser(models.Model):
     user_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
@@ -38,6 +44,7 @@ class Customer(models.Model):
     middle_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40)
     age = models.IntegerField(default=0, null=True, blank=True)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     number_of_calls = models.IntegerField(default=0, null=True, blank=True)
     category = models.ManyToManyField(Category)
     phone_number = models.CharField(max_length=20, null=True, blank=True)
