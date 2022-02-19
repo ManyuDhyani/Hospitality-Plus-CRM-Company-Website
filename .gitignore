@@ -4,3 +4,4 @@
 /media
 db.sqlite3
 /CRM/migrations
+/Landing Page/node_modules
