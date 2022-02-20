@@ -1,3 +1,4 @@
+from asyncio import events
 from django.db import models
 from django.contrib.auth import get_user_model
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -15,8 +16,17 @@ class Agent(models.Model):
         return self.agent.username
 
 
+class Event(models.Model):
+    title = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name_plural = 'Events'
+
+    def __str__(self):
+        return self.title
+
 class Category(models.Model):
-    title = models.CharField(max_length=100)  # New, Contacted, Converted, Unconverted
+    title = models.CharField(max_length=100)
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -46,7 +56,8 @@ class Customer(models.Model):
     age = models.IntegerField(default=0, null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default='Unknown')
     number_of_calls = models.IntegerField(default=0, null=True, blank=True)
-    category = models.ManyToManyField(Category)
+    category_attended = models.ManyToManyField(Category, blank=True)
+    events = models.ForeignKey(Event, null=True, blank=True, on_delete=models.SET_NULL)
     phone_number = models.CharField(max_length=20)
     email = models.EmailField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=CUSTOMER_STATUS_CHOICES, default='Customer')
