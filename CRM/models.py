@@ -47,7 +47,7 @@ class Customer(models.Model):
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default='Unknown')
     number_of_calls = models.IntegerField(default=0, null=True, blank=True)
     category = models.ManyToManyField(Category)
-    phone_number = models.CharField(max_length=20, null=True, blank=True)
+    phone_number = models.CharField(max_length=20)
     email = models.EmailField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=CUSTOMER_STATUS_CHOICES, default='Customer')
     converted_date = models.CharField(max_length=40, null=True, blank=True)
