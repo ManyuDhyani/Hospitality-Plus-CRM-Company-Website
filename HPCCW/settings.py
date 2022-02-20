@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'user_visit',
     'simple_history',
     "crispy_forms",
-    "crispy_tailwind",
+    # "crispy_tailwind",
 
     'CRM',
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
-CRISPY_TEMPLATE_PACK = "tailwind"
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CKEDITOR_UPLOAD_PATH ="TraveloftIndiaMedia/"
 
 MIDDLEWARE = [

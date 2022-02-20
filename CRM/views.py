@@ -8,7 +8,7 @@ def landing(request):
     return render(request, "landing.html")
 
 class landingLeadFormView(generic.CreateView):
-    template_name = 'test.html'
+    template_name = 'landing.html'
     form_class = LeadForm
     # success_url = '/thanks/'
 
