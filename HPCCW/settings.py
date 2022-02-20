@@ -42,10 +42,14 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'user_visit',
     'simple_history',
+    "crispy_forms",
+    "crispy_tailwind",
 
     'CRM',
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 CKEDITOR_UPLOAD_PATH ="TraveloftIndiaMedia/"
 
 MIDDLEWARE = [
@@ -62,10 +66,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'HPCCW.urls'
 
+TEMPLATES_ROOT = BASE_DIR / 'templates'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_ROOT],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,10 +134,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR/'static_in_env'
+    BASE_DIR/'static'
 ]
 
-STATIC_ROOT = BASE_DIR/'static/'
+STATIC_ROOT = BASE_DIR/'static_cdn/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media/'

@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/upload/', login_required(views.upload), name='ckeditor_upload'),
     path('ckeditor/browse/', never_cache(login_required(views.browse)), name='ckeditor_browse'),
+    path('booking/', include('CRM.urls', namespace='CRM')),
 ]
 
 if settings.DEBUG:
