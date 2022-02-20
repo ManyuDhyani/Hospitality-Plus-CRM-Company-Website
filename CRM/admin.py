@@ -3,6 +3,7 @@ from .models import *
 from simple_history.admin import SimpleHistoryAdmin
 
 admin.site.register(Category)
+admin.site.register(Event)
 admin.site.register(Agent)
 
 class CustomerAdmin(SimpleHistoryAdmin):

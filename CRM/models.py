@@ -54,7 +54,7 @@ class Customer(models.Model):
     middle_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40)
     age = models.IntegerField(default=0, null=True, blank=True)
-    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default='Unknown')
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     number_of_calls = models.IntegerField(default=0, null=True, blank=True)
     category_attended = models.ManyToManyField(Category, blank=True)
     events = models.ForeignKey(Event, null=True, blank=True, on_delete=models.SET_NULL)
