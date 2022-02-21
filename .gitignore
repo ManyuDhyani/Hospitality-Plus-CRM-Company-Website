@@ -6,3 +6,4 @@ db.sqlite3
 /CRM/migrations
 /Landing Page/node_modules
 /static_cdn
+ngrok.exe
