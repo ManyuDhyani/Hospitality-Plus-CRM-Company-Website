@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import landingLeadFormView, thankyou
+from .views import landingLeadFormView, thankyou, dashboard
 
 app_name = 'CRM'
 
