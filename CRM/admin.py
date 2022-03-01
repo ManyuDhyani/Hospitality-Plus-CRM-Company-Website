@@ -5,6 +5,7 @@ from simple_history.admin import SimpleHistoryAdmin
 admin.site.register(Category)
 admin.site.register(Event)
 admin.site.register(Agent)
+admin.site.register(Newsletter)
 
 class CustomerAdmin(SimpleHistoryAdmin):
     list_display = ['first_name', 'last_name', 'age', 'gender', 'phone_number', 'email', 'date_added']
