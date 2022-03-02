@@ -45,6 +45,7 @@ def pie_chart(request):
     data = []
 
     queryset = Customer.objects.values('category_attended__title').annotate(trend_count=Count('category_attended__title')).order_by('-trend_count')
+<<<<<<< HEAD
     # print(queryset[1])
     
     for i, cat in enumerate(queryset):
@@ -52,6 +53,18 @@ def pie_chart(request):
         labels.append(x)
         data.append(y)
 
+=======
+    for i, cat in enumerate(queryset):
+        for j, keys in enumerate(queryset[i]):
+            print(queryset)
+            print(queryset[j][keys])
+            # x, y = queryset[j][keys], queryset[j]
+            # print("x:", x, "y:", y)
+            # x, y = queryset[j].split()
+            # labels.append(str(queryset[j][keys]))
+            # data.append(str(queryset[j][keys]))
+        
+>>>>>>> 6f26851e12cc98c9741392944763a16e7ac950ef
 
     return render(request, 'CRM/pieChart.html', {
         'labels': labels,
