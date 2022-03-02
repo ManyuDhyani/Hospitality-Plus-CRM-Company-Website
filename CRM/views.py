@@ -74,3 +74,22 @@ def pie_chart_gender(request):
         'labels': labels,
         'data': data,
     })
+
+
+def bar_chart_lead_customer_ratio(request):
+    labels = []
+    data = []
+
+    queryset = Customer.objects.values('status').annotate(lead_customer_ratio=Count('status')).order_by('lead_customer_ratio')
+
+    for i, cat in enumerate(queryset):
+        x, y = list(queryset[i].values())
+        if x is None:
+            continue
+        labels.append(x)
+        data.append(y)
+
+    return render(request, 'CRM/barChart.html', {
+        'labels': labels,
+        'data': data,
+    })

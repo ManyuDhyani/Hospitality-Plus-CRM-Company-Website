@@ -13,7 +13,7 @@ admin.site.register(Newsletter)
 
 class CustomerAdmin(ImportExportModelAdmin, SimpleHistoryAdmin):
     resources_class = CustomerResource
-    list_display = ['first_name', 'last_name', 'age', 'gender', 'phone_number', 'email', 'date_added']
+    list_display = ['first_name', 'last_name', 'age', 'gender', 'phone_number', 'email', 'status', 'date_added']
     list_display_links = ['first_name']
     #list_editable = ['email', 'phone_number']
     list_filter = ['agent', 'status', 'category_attended']
