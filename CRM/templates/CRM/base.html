@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>{% block title %}Django Pie-Chart{% endblock %}</title>
+</head>
+<body>
+
+  <nav>
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" href="">Bar Chart</a> 
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" href="{% url 'CRM:pie-chart' %}">Pie Chart</a>
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" href="">High Chart</a>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+</body>
+</html>
