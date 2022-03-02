@@ -19,5 +19,7 @@ class CustomerAdmin(ImportExportModelAdmin, SimpleHistoryAdmin):
     list_filter = ['agent', 'status', 'category_attended']
     search_fields = ['first_name', 'last_name', 'email']
     exclude = ('changed_by',)
+    date_hierarchy = 'date_added'
+    save_on_top = True
 
 admin.site.register(Customer, CustomerAdmin)
