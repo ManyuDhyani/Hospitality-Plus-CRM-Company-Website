@@ -1,4 +1,3 @@
-from re import template
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
@@ -40,31 +39,36 @@ def thankyou(request):
 
 #Graph Analysis for CRM data
 
-def pie_chart(request):
+def pie_chart_category(request):
     labels = []
     data = []
 
     queryset = Customer.objects.values('category_attended__title').annotate(trend_count=Count('category_attended__title')).order_by('-trend_count')
-<<<<<<< HEAD
-    # print(queryset[1])
     
     for i, cat in enumerate(queryset):
         x, y = list(queryset[i].values())
+        if x is None:
+            continue
         labels.append(x)
         data.append(y)
-
-=======
-    for i, cat in enumerate(queryset):
-        for j, keys in enumerate(queryset[i]):
-            print(queryset)
-            print(queryset[j][keys])
-            # x, y = queryset[j][keys], queryset[j]
-            # print("x:", x, "y:", y)
-            # x, y = queryset[j].split()
-            # labels.append(str(queryset[j][keys]))
-            # data.append(str(queryset[j][keys]))
         
->>>>>>> 6f26851e12cc98c9741392944763a16e7ac950ef
+    return render(request, 'CRM/pieChart.html', {
+        'labels': labels,
+        'data': data,
+    })
+
+def pie_chart_gender(request):
+    labels = []
+    data = []
+
+    queryset = Customer.objects.values('gender').annotate(gender_ratio=Count('gender')).order_by('gender_ratio')
+
+    for i, cat in enumerate(queryset):
+        x, y = list(queryset[i].values())
+        if x is None:
+            continue
+        labels.append(x)
+        data.append(y)
 
     return render(request, 'CRM/pieChart.html', {
         'labels': labels,
