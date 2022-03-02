@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user_visit',
     'simple_history',
     "crispy_forms",
+    'import_export',
     # "crispy_tailwind",
 
     'CRM',
