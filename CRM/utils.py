@@ -1,4 +1,4 @@
-from .models import Customer, Agent
+from .models import Customer
 from django.db.models import Count
 import calendar
 
@@ -100,17 +100,4 @@ def Customer_Lead_By_Month():
         'dataLead': dataLead
     }
     
-    return context
-
-
-def user_profile_picture(user):
-    context = {}
-    user = Agent.objects.values('profile_picture').filter(agent = user)
-    for i, _ in enumerate(user):
-        x = list(user[i].values())
-        if x:
-            url = "http://127.0.0.1:8000/media/" + x[0]
-    context = {
-        'url':url
-    }
     return context

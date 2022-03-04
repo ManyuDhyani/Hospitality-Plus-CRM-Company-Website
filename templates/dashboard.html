@@ -54,7 +54,10 @@
             <div class="relative text-sm text-gray-100">
                 {% if request.user.is_authenticated %}
                     <button id="userButton" class="flex items-center focus:outline-none mr-3">
-                    <img class="w-8 h-8 rounded-full mr-4" src="{{ url }}" alt="Avatar of User"> <span class="hidden md:inline-block text-gray-100">Hi, {{request.user.username}}</span>
+                    {% for obj in users %}
+                    <img class="w-8 h-8 rounded-full mr-4" src="{{ obj.profile_picture.url }}" alt="Avatar of User"> 
+                    {% endfor %}
+                    <span class="hidden md:inline-block text-gray-100">Hi, {{request.user.username}}</span>
                     <svg class="pl-2 h-2 fill-current text-gray-100" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129"><g><path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"/></g></svg>
                     </button>
                 {% endif %}
@@ -153,8 +156,8 @@
                                   <div class="rounded p-3 bg-pink-600"><i class="fas fa-users fa-2x fa-fw fa-inverse"></i></div>
                               </div>
                               <div class="flex-1 text-right md:text-center">
-                                  <h5 class="font-bold uppercase text-gray-400">Total Users</h5>
-                                  <h3 class="font-bold text-3xl text-gray-600">249 <span class="text-pink-500"><i class="fas fa-exchange-alt"></i></span></h3>
+                                  <h5 class="font-bold uppercase text-gray-400">Total Customers</h5>
+                                  <h3 class="font-bold text-3xl text-gray-600">{{Customer_count}} <span class="text-pink-500"><i class="fas fa-exchange-alt"></i></span></h3>
                               </div>
                           </div>
                       </div>
@@ -168,8 +171,8 @@
                                   <div class="rounded p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-fw fa-inverse"></i></div>
                               </div>
                               <div class="flex-1 text-right md:text-center">
-                                  <h5 class="font-bold uppercase text-gray-400">New Users</h5>
-                                  <h3 class="font-bold text-3xl text-gray-600">2 <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
+                                  <h5 class="font-bold uppercase text-gray-400">Total Leads</h5>
+                                  <h3 class="font-bold text-3xl text-gray-600">{{Lead_count}} <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
                               </div>
                           </div>
                       </div>
