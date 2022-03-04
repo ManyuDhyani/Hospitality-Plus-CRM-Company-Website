@@ -8,6 +8,7 @@ User = get_user_model()
 
 class Agent(models.Model):
     agent = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_picture = models.ImageField(null=True, blank=True, upload_to="profile_pictures/agents/")
 
     class Meta:
         verbose_name_plural = 'Agents'
