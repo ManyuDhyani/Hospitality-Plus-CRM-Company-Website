@@ -74,9 +74,9 @@ def Customer_Lead_By_Month():
     dataLead = []
     context = {}
 
-    querysetCustomer = Customer.objects.values('date_added__month').annotate(Count('status')).order_by('date_added__month').filter(status='Customer')[:4]
+    querysetCustomer = Customer.objects.values('date_added__month').annotate(Count('status')).order_by('-date_added__month').filter(status='Customer')[:4]
     
-    querysetLead = Customer.objects.values('date_added__month').annotate(Count('status')).order_by('date_added__month').filter(status='Lead')[:4]
+    querysetLead = Customer.objects.values('date_added__month').annotate(Count('status')).order_by('-date_added__month').filter(status='Lead')[:4]
     
 
     for i, _ in enumerate(querysetCustomer):

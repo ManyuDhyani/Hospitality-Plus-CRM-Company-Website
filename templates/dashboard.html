@@ -276,7 +276,7 @@
                       <!--Graph Card-->
                       <div class="bg-gray-900 border border-gray-800 rounded shadow">
                           <div class="border-b border-gray-800 p-3">
-                              <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                              <h5 class="font-bold uppercase text-gray-600">Transaction Graph</h5>
                           </div>
                           <div class="p-5">
                               <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
@@ -284,14 +284,23 @@
                                   new Chart(document.getElementById("chartjs-0"), {
                                       "type": "line",
                                       "data": {
-                                          "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                                          "datasets": [{
-                                              "label": "Views",
-                                              "data": [65, 59, 80, 81, 56, 55, 40],
+                                          "labels": {{ labelsTransactionMonths|safe }},
+                                          "datasets": [
+                                              {
+                                              "label": "Credit",
+                                              "data": {{ dataCredit|safe }},
                                               "fill": false,
                                               "borderColor": "rgb(75, 192, 192)",
                                               "lineTension": 0.1
-                                          }]
+                                          },
+                                          {
+                                              "label": "Debit",
+                                              "data": {{ dataDebit|safe }},
+                                              "fill": false,
+                                              "borderColor": "rgb(243,53,53)",
+                                              "lineTension": 0.1
+                                          }
+                                        ]
                                       },
                                       "options": {}
                                   });
