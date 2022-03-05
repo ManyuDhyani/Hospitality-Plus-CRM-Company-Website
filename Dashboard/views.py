@@ -18,7 +18,7 @@ def dashboard(request):
     
     #Logged in User Info
     user = Agent.objects.filter(agent=request.user)
-
+    
     #Dashboard Attributes
     #CRM Customer Lead Total
     Customer_count = Customer.objects.filter(status='Customer').count()

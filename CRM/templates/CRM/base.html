@@ -5,8 +5,13 @@
   <script src="https://code.highcharts.com/highcharts.src.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <title>{% block title %}Django Pie-Chart{% endblock %}</title>
+  <style>
+		.bg-black-alt  {
+			background:#191919;
+		}
+	</style>
 </head>
-<body>
+<body class="bg-black-alt">
 
   <nav>
     <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" href="{% url 'CRM:pie-chart-category' %}">Trending Categories</a>

@@ -54,7 +54,7 @@
             <div class="relative text-sm text-gray-100">
                 {% if request.user.is_authenticated %}
                     <button id="userButton" class="flex items-center focus:outline-none mr-3">
-                    {% for obj in users %}
+                    {% for obj in user %}
                     <img class="w-8 h-8 rounded-full mr-4" src="{{ obj.profile_picture.url }}" alt="Avatar of User"> 
                     {% endfor %}
                     <span class="hidden md:inline-block text-gray-100">Hi, {{request.user.username}}</span>
@@ -89,24 +89,9 @@
                               <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
                           </a>
                       </li>
-            <li class="mr-6 my-2 md:my-0">
-                          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
-                              <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Tasks</span>
-                          </a>
-                      </li>
                       <li class="mr-6 my-2 md:my-0">
-                          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400">
-                              <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Messages</span>
-                          </a>
-                      </li>
-                      <li class="mr-6 my-2 md:my-0">
-                          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-green-400">
-                              <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Analytics</span>
-                          </a>
-                      </li>
-                      <li class="mr-6 my-2 md:my-0">
-                          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400">
-                              <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Payments</span>
+                          <a href="http://127.0.0.1:8000/admin/Dashboard/transaction/" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400">
+                              <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Transactions</span>
                           </a>
                       </li>
           </ul>
@@ -314,7 +299,7 @@
                       <!--Graph Card-->
                       <div class="bg-gray-900 border border-gray-800 rounded shadow">
                           <div class="border-b border-gray-800 p-3">
-                              <h5 class="font-bold uppercase text-gray-600">Top Trending Categories</h5>
+                              <h5 class="font-bold uppercase text-gray-600"><a class="cursor-pointer" href="{% url 'CRM:pie-chart-category' %}">Top Trending Categories</a></h5>
                           </div>
                           <div class="p-5">
                               <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
@@ -352,7 +337,7 @@
                       <!--Graph Card Gender Ratio-->
                       <div class="bg-gray-900 border border-gray-800 rounded shadow">
                           <div class="border-b border-gray-800 p-3">
-                              <h5 class="font-bold uppercase text-gray-600">Gender Ratio Graph</h5>
+                              <h5 class="font-bold uppercase text-gray-600"><a class="cursor-pointer" href="{% url 'CRM:pie-chart-gender' %}">Gender Ratio Graph</a></h5>
                           </div>
                           <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined" height="undefined"></canvas>
                               <script>
@@ -377,7 +362,7 @@
                     <!--Graph Card Gender Ratio-->
                     <div class="bg-gray-900 border border-gray-800 rounded shadow">
                         <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Lead-Customer Ratio Graph</h5>
+                            <h5 class="font-bold uppercase text-gray-600"><a class="cursor-pointer" href="{% url 'CRM:bar-chart-lead-customer-ratio' %}">Lead-Customer Ratio Graph</a></h5>
                         </div>
                         <div class="p-5"><canvas id="chartjs-4lc" class="chartjs" width="undefined" height="undefined"></canvas>
                             <script>
