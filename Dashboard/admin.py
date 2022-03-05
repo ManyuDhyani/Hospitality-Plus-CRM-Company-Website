@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Transaction
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ['amount', 'description', 'transaction', 'date_added', 'date_modified']
+    list_display = ['amount', 'description', 'category', 'transaction', 'date_added', 'date_modified']
     list_filter = ['transaction', ]
     date_hierarchy = 'date_added'
 

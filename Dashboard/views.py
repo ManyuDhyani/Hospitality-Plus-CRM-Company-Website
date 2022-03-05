@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.admin.views.decorators import staff_member_required
 from datetime import datetime
+from django.db.models import Sum
 
 from CRM.models import Agent, Customer
 from CRM.utils import pie_chart_gender_ratio, bar_chart_lead_customer_ratio, bar_chart_trend_category, Customer_Lead_By_Month
@@ -32,6 +33,11 @@ def dashboard(request):
     thisMonth = datetime.now().month
     monthTransactions = Transaction.objects.filter(date_added__month=thisMonth)
     context.update({'monthTransactions':monthTransactions})
+
+    #Credit and Debit
+    monthlyCredit = Transaction.objects.filter(date_added__month=thisMonth, transaction='Credit').aggregate(Sum('amount'))
+    monthlyDebit = Transaction.objects.filter(date_added__month=thisMonth, transaction='Debit').aggregate(Sum('amount'))
+    context.update({'monthlyCredit':monthlyCredit, 'monthlyDebit':monthlyDebit})
 
     return render(request, "dashboard.html", context)
 
