@@ -393,32 +393,32 @@
                               <table class="w-full p-5 text-gray-700">
                                   <thead>
                                       <tr>
-                                          <th class="text-left text-gray-600">Name</th>
-                                          <th class="text-left text-gray-600">Side</th>
-                                          <th class="text-left text-gray-600">Role</th>
+                                          <th class="text-left text-gray-600">Description</th>
+                                          <th class="text-left text-gray-600">Amount</th>
+                                          <th class="text-left text-gray-600">Transaction</th>
+                                          <th class="text-left text-gray-600">Timestamp</th>
                                       </tr>
                                   </thead>
   
                                   <tbody>
-                                      <tr>
-                                          <td>Obi Wan Kenobi</td>
-                                          <td>Light</td>
-                                          <td>Jedi</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Greedo</td>
-                                          <td>South</td>
-                                          <td>Scumbag</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Darth Vader</td>
-                                          <td>Dark</td>
-                                          <td>Sith</td>
-                                      </tr>                                   
+                                    {% for transaction in monthTransactions %}
+                                        <tr>
+                                            <td>{{ transaction.description }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ transaction.amount }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ transaction.transaction }}</td>
+                                        </tr>  
+                                        <tr>
+                                            <td>{{ transaction.date_added }}</td>
+                                        </tr>  
+                                    {% endfor %}                               
                                   </tbody>
                               </table>
   
-                              <p class="py-2"><a href="#" class="text-white">See More issues...</a></p>
+                              <p class="py-2"><a href="#" class="text-white">See All Transactions...</a></p>
   
                           </div>
                       </div>

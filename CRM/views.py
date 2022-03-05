@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
 from django.db.models import Count
+from django.contrib.admin.views.decorators import staff_member_required
 
 from CRM.models import Customer
 from .forms import LeadForm
@@ -38,7 +39,7 @@ def thankyou(request):
 
 
 #Graph Analysis for CRM data
-
+@staff_member_required
 def pie_chart_category(request):
     labels = []
     data = []
@@ -57,6 +58,7 @@ def pie_chart_category(request):
         'data': data,
     })
 
+@staff_member_required
 def pie_chart_gender(request):
     labels = []
     data = []
@@ -75,7 +77,7 @@ def pie_chart_gender(request):
         'data': data,
     })
 
-
+@staff_member_required
 def bar_chart_lead_customer_ratio(request):
     labels = []
     data = []
