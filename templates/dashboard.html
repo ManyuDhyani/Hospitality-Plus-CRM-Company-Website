@@ -404,21 +404,15 @@
                                     {% for transaction in monthTransactions %}
                                         <tr>
                                             <td>{{ transaction.description }}</td>
-                                        </tr>
-                                        <tr>
                                             <td>{{ transaction.amount }}</td>
-                                        </tr>
-                                        <tr>
                                             <td>{{ transaction.transaction }}</td>
-                                        </tr>  
-                                        <tr>
                                             <td>{{ transaction.date_added }}</td>
-                                        </tr>  
+                                        </tr>
                                     {% endfor %}                               
                                   </tbody>
                               </table>
-  
-                              <p class="py-2"><a href="#" class="text-white">See All Transactions...</a></p>
+                              
+                              <p class="py-2"><a href="http://127.0.0.1:8000/admin/Dashboard/transaction/" class="text-white">See All Transactions...</a></p>
   
                           </div>
                       </div>
