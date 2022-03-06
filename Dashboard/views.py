@@ -39,6 +39,12 @@ def dashboard(request):
     monthlyDebit = Transaction.objects.filter(date_added__month=thisMonth, transaction='Debit').aggregate(Sum('amount'))
     context.update({'monthlyCredit':monthlyCredit, 'monthlyDebit':monthlyDebit})
 
+    #Total Revenue and Expenditure (Yearly)
+    thisYear = datetime.now().year
+    yearlyCredit = Transaction.objects.filter(date_added__year=thisYear, transaction='Credit').aggregate(Sum('amount'))
+    yearlyDebit = Transaction.objects.filter(date_added__year=thisYear, transaction='Debit').aggregate(Sum('amount'))
+    context.update({'yearlyCredit':yearlyCredit, 'yearlyDebit':yearlyDebit})
+    
     return render(request, "dashboard.html", context)
 
 
