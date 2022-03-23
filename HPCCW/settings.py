@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     'CRM',
     'Dashboard',
+    'Activities',
 ]
 
 # CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
