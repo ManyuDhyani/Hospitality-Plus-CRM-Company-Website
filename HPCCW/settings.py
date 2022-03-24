@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'simple_history',
     "crispy_forms",
     'import_export',
+    'rest_framework',
     # "crispy_tailwind",
 
     'CRM',
@@ -221,4 +222,10 @@ CKEDITOR_CONFIGS = {
             'elementspath'
         ]),
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }

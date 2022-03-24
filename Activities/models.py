@@ -23,3 +23,6 @@ class Activities(models.Model):
     price = models.CharField(max_length=20)
     description = models.TextField(max_length=150)
     category = models.ForeignKey(ActivitiesCategories, on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Activities'
