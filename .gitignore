@@ -6,5 +6,6 @@ db.sqlite3
 /Landing Page/node_modules
 /Dashboard_UI/node_modules
 /Website_landing_page/node_modules
+/Acitivity_UI/node_modules
 /static_cdn
 ngrok.exe
