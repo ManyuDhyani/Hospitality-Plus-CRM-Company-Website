@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,19 @@
 
     <title>HPCCW</title>
 
+    <link rel="stylesheet" href="{% static 'css/dashboardcss.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- custom js file link  -->
-    <script src="js/script.js" defer></script>
+    <script src="{% static 'js/script.js' %}" defer></script>
 </head>
 <body>
     
@@ -22,7 +30,7 @@
     
         <div id="menu-btn" class="fas fa-bars"></div>
     
-        <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"> <i class="fas fa-paper-plane"></i>traveloft India </a>
+        <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"> <i class="fas fa-paper-plane"></i>HPCCW</a>
     
         <nav class="navbar">
             <a data-aos="zoom-in-left" data-aos-delay="300" href="#home">home</a>
@@ -41,7 +49,7 @@
     
     <!-- home section starts  -->
     
-    <section class="home" id="home">
+    <section class="home" id="home" style="background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url({{videos.home_Image.url}}) no-repeat; background-size: cover; background-position: center;">
     
         <div class="content">
             <span data-aos="fade-up" data-aos-delay="150">Follow us</span>
@@ -83,11 +91,12 @@
     <section class="about" id="about">
     
         <div class="video-container" data-aos="fade-right" data-aos-delay="300">
-            <video src="images/about-vid-1.mp4" muted autoplay loop class="video"></video>
+            <video src="{{videos.video1.url}}" muted autoplay loop class="video"></video>
             <div class="controls">
-                <span class="control-btn" data-src="images/about-vid-1.mp4"></span>
-                <span class="control-btn" data-src="images/about-vid-2.mp4"></span>
-                <span class="control-btn" data-src="images/about-vid-3.mp4"></span>
+                <span class="control-btn" data-src="{{videos.video1.url}}"></span>
+                <span class="control-btn" data-src="{{videos.video2.url}}"></span>
+                <span class="control-btn" data-src="{{videos.video3.url}}"></span>
+                <span class="control-btn" data-src="{{videos.video4.url}}"></span>
             </div>
         </div>
     
@@ -112,94 +121,19 @@
         </div>
     
         <div class="box-container">
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="150">
-                <div class="image">
-                    <img src="images/des-1.jpg" alt="">
+
+            {% for activity in activities %}
+                <div class="box" data-aos="fade-up" data-aos-delay="150">
+                    <div class="image">
+                        <img src="{{activity.thumbnail.url}}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>{{activity.title}}</h3>
+                        <p>{{activity.description}}</p>
+                        <a href="#">read more <i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="300">
-                <div class="image">
-                    <img src="images/des-2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="450">
-                <div class="image">
-                    <img src="images/des-3.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="600">
-                <div class="image">
-                    <img src="images/des-4.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="750">
-                <div class="image">
-                    <img src="images/des-5.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="900">
-                <div class="image">
-                    <img src="images/des-6.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="1150">
-                <div class="image">
-                    <img src="images/des-7.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="1300">
-                <div class="image">
-                    <img src="images/des-8.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>tours & travel</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-                    <a href="#">read more <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
+            {% endfor %}
     
         </div>
     
@@ -220,38 +154,38 @@
     
             <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
                 <i class="fas fa-globe"></i>
-                <h3>worldwide</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+                <h3>{{services.title1}}</h3>
+                <p>{{services.description1}}</p>
             </div>
     
             <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
                 <i class="fas fa-hiking"></i>
-                <h3>adventures</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+                <h3>{{services.title2}}</h3>
+                <p>{{services.description2}}</p>
             </div>
     
             <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
                 <i class="fas fa-utensils"></i>
-                <h3>food & drinks</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+                <h3>{{services.title3}}</h3>
+                <p>{{services.description3}}</p>
             </div>
     
             <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
                 <i class="fas fa-hotel"></i>
-                <h3>affordable hotels</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+                <h3>{{services.title4}}</h3>
+                <p>{{services.description4}}</p>
             </div>
     
             <div class="box" data-aos="zoom-in-up" data-aos-delay="750">
                 <i class="fas fa-wallet"></i>
-                <h3>affordable price</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+                <h3>{{services.title5}}</h3>
+                <p>{{services.description5}}</p>
             </div>
     
             <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
                 <i class="fas fa-headset"></i>
-                <h3>24/7 support</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+                <h3>{{services.title6}}</h3>
+                <p>{{services.description6}}</p>
             </div>
     
         </div>
@@ -270,60 +204,14 @@
         </div>
         
         <div class="box-container">
-    
+            
+            {% for picture in gallery %}
             <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
-                <img src="images/gallery-img-1.jpg" alt="">
-                <span>travel spot</span>
-                <h3>iceland</h3>
+                <img src="{{picture.thumbnail.url}}" alt="">
+                <span>{{picture.category.category}}</span>
+                <h3>{{picture.location}}</h3>
             </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
-                <img src="images/gallery-img-2.jpg" alt="">
-                <span>travel spot</span>
-                <h3>greenland</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
-                <img src="images/gallery-img-3.jpg" alt="">
-                <span>travel spot</span>
-                <h3>alaska</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
-                <img src="images/gallery-img-4.jpg" alt="">
-                <span>travel spot</span>
-                <h3>thailand</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
-                <img src="images/gallery-img-5.jpg" alt="">
-                <span>travel spot</span>
-                <h3>brazil</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
-                <img src="images/gallery-img-6.jpg" alt="">
-                <span>travel spot</span>
-                <h3>maldive</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
-                <img src="images/gallery-img-7.jpg" alt="">
-                <span>travel spot</span>
-                <h3>iceland</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
-                <img src="images/gallery-img-8.jpg" alt="">
-                <span>travel spot</span>
-                <h3>alaska</h3>
-            </div>
-    
-            <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
-                <img src="images/gallery-img-9.jpg" alt="">
-                <span>travel spot</span>
-                <h3>maldive</h3>
-            </div>
+            {% endfor %}
     
         </div>
     
