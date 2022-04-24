@@ -230,47 +230,19 @@
         </div>
     
         <div class="box-container" data-aos="fade-left" data-aos-delay="600">
-    
-            <div class="box">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, ratione.</p>
-                <div class="user">
-                    <img src="images/pic-1.png" alt="">
-                    <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
+            
+            {% for testimonial in testimonials %}
+                <div class="box">
+                    <p>{{testimonial.review}}</p>
+                    <div class="user">
+                        <img src="{{testimonial.profile_picture.url}}" alt="">
+                        <div class="info">
+                            <h3>{{testimonial.name}}</h3>
+                            <span>{{testimonial.coming_from}}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="box">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, ratione.</p>
-                <div class="user">
-                    <img src="images/pic-2.png" alt="">
-                    <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, ratione.</p>
-                <div class="user">
-                    <img src="images/pic-3.png" alt="">
-                    <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, ratione.</p>
-                <div class="user">
-                    <img src="images/pic-4.png" alt="">
-                    <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
     
         </div>
     
@@ -339,7 +311,7 @@
     
     <!-- banner section starts  -->
     
-    <div class="banner">
+    <div class="banner" style="background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url({{videos.footer_Image.url}}) no-repeat; background-size: cover; background-position: center;">
     
         <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
             <span>start your adventures</span>
