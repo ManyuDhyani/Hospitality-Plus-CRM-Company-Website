@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Gallery, Testimonials, Video, Services
+from .models import ContactDetails, Gallery, Quotes, Testimonials, Video, Services
 from Activities.models import Activities
 
 #Index page function
@@ -9,6 +9,16 @@ def index(request):
     services=Services.objects.first()
     gallery=Gallery.objects.filter(recommended=True)[:10]
     testimonials=Testimonials.objects.filter(recommended=True)[:4]
-    context={'videos':videos, 'activities':activities, 'services':services, 'gallery':gallery, 'testimonials':testimonials}
+    quotes=Quotes.objects.first()
+    contact = ContactDetails.objects.first()
+    context={
+        'videos':videos, 
+        'activities':activities, 
+        'services':services, 
+        'gallery':gallery, 
+        'testimonials':testimonials, 
+        'quotes':quotes, 
+        'contact':contact
+        }
     print(videos.video1)
     return render(request, "index.html", context)

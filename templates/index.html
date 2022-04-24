@@ -8,7 +8,6 @@
 
     <title>HPCCW</title>
 
-    <link rel="stylesheet" href="{% static 'css/dashboardcss.css' %}">
     <link rel="icon" type="image/png" href="{% static 'images/favicon/favicon.ico' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
@@ -49,12 +48,12 @@
     
     <!-- home section starts  -->
     
-    <section class="home" id="home" style="background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url({{videos.home_Image.url}}) no-repeat; background-size: cover; background-position: center;">
+    <section class="home" id="home" style="background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url({{videos.header_Image.url}}) no-repeat; background-size: cover; background-position: center;">
     
         <div class="content">
             <span data-aos="fade-up" data-aos-delay="150">Follow us</span>
             <h3 data-aos="fade-up" data-aos-delay="300">Explore to Know more</h3>
-            <p data-aos="fade-up" data-aos-delay="450">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quia illum quod perspiciatis harum in possimus? Totam consequuntur officia quia?</p>
+            <p data-aos="fade-up" data-aos-delay="450">{{quotes.header}}</p>
             <a data-aos="fade-up" data-aos-delay="600" href="#" class="btn">book now</a>
         </div>
     
@@ -103,7 +102,7 @@
         <div class="content" data-aos="fade-left" data-aos-delay="600">
             <span>why choose us?</span>
             <h3>Nature's Majesty Awaits You</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fugit repellat error deserunt nam aperiam odit libero quos provident. Nostrum?</p>
+            <p>{{quotes.about_us}}</p>
             <a href="#" class="btn">read more</a>
         </div>
     
@@ -226,7 +225,7 @@
         <div class="content" data-aos="fade-right" data-aos-delay="300">
             <span>testimonials</span>
             <h3>good news from our clients</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda laudantium corporis fugiat quae unde perspiciatis similique ab modi enim consequatur aperiam cumque distinctio facilis sit, debitis possimus asperiores non harum.</p>
+            <p>{{quotes.testimonials}}</p>
         </div>
     
         <div class="box-container" data-aos="fade-left" data-aos-delay="600">
@@ -316,7 +315,7 @@
         <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
             <span>start your adventures</span>
             <h3>Let's Explore This World</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptatum praesentium amet quibusdam quam officia suscipit odio.</p>
+            <p>{{quotes.bottom_banner}}</p>
             <a href="#book-form" class="btn">book now</a>
         </div>
     
@@ -332,7 +331,7 @@
     
             <div class="box" data-aos="fade-up" data-aos-delay="150">
                 <a href="#" class="logo"> <i class="fas fa-paper-plane"></i>travel </a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ad?</p>
+                <p>{{quotes.footer}}</p>
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>
@@ -353,10 +352,10 @@
     
             <div class="box" data-aos="fade-up" data-aos-delay="450">
                 <h3>contact info</h3>
-                <p> <i class="fas fa-map"></i> noida, india </p>
-                <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
-                <p> <i class="fas fa-envelope"></i> manyudhyani@gmail.com </p>
-                <p> <i class="fas fa-clock"></i> 7:00am - 10:00pm </p>
+                <p> <i class="fas fa-map"></i> {{contact.office_location}} </p>
+                <p> <i class="fas fa-phone"></i> {{contact.office_phone}} </p>
+                <p> <i class="fas fa-envelope"></i> {{contact.office_email}} </p>
+                <p> <i class="fas fa-clock"></i> {{contact.office_timings}} </p>
             </div>
     
             <div class="box" data-aos="fade-up" data-aos-delay="600">
