@@ -20,5 +20,4 @@ def index(request):
         'quotes':quotes, 
         'contact':contact
         }
-    print(videos.video1)
     return render(request, "index.html", context)

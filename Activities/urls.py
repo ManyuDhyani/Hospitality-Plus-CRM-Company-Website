@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import *
+from .views import activityDetail
 
-app_name = 'Dashboard'
+app_name = 'Activities'
 
 urlpatterns = [
-    
+    path('',activityDetail),
     ]

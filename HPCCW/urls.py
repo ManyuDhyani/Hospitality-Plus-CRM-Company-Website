@@ -13,7 +13,7 @@ urlpatterns = [
     path('ckeditor/browse/', never_cache(login_required(views.browse)), name='ckeditor_browse'),
     path('booking/', include('CRM.urls', namespace='CRM')),
     path('dashboard/', include('Dashboard.urls', namespace='Dashboard')),
-    path('activities/', include('CRM.urls', namespace='Activities')),
+    path('activities/', include('Activities.urls', namespace='Activities')),
     path('', index, name="index")
 ]
 
