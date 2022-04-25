@@ -4,5 +4,5 @@ from .views import activityDetail
 app_name = 'Activities'
 
 urlpatterns = [
-    path('',activityDetail),
+    path('<slug>/',activityDetail, name="activity-detail"),
     ]

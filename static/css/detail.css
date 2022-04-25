@@ -52,7 +52,6 @@ img{
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
-    margin: 1rem 0;
     color: #fff;
 }
 
@@ -126,7 +125,6 @@ img{
 }
 .purchase-info input,
 .purchase-info .btn{
-    border: 1.5px solid #ddd;
     border-radius: 25px;
     text-align: center;
     padding: 0.45rem 0.8rem;
@@ -142,10 +140,10 @@ img{
     color: #fff;
 }
 .purchase-info .btn:first-of-type{
-    background: #256eff;
+    background: #339DFF;
 }
 .purchase-info .btn:last-of-type{
-    background: #f64749;
+    background: #dc4b4e;
 }
 .purchase-info .btn:hover{
     opacity: 0.9;

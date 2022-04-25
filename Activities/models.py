@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.signals import pre_save
+from django.urls import reverse
 from .utils import unique_slug_generator_title
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -16,23 +17,33 @@ class ActivitiesCategories(models.Model):
 class Activities(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=250, null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='upload/treks')
+    thumbnail = models.ImageField(upload_to='upload/activities')
     recommended = models.BooleanField(null=True, blank=True, default=False)
-    altitude = models.CharField(max_length=20)
-    duration_days = models.CharField(max_length=20)
-    difficulty = models.CharField(max_length=20)
+    altitude = models.CharField(max_length=20, default="")
+    duration_days = models.CharField(max_length=20, default="")
+    difficulty = models.CharField(max_length=20, default="")
     location = models.CharField(max_length=40)
-    distance = models.CharField(max_length=20)
+    distance = models.CharField(max_length=20, default="")
+    old_price = models.CharField(max_length=20, default="xxxxx")
     price = models.CharField(max_length=20)
     description = models.TextField(max_length=250)
     category = models.ForeignKey(ActivitiesCategories, on_delete=models.SET_NULL, null=True)
     content = RichTextUploadingField(null=True, blank=True)
+    thumbnail = models.ImageField(upload_to='uplo ad/activities', default="images/whiteBG.jpg")
+    thumbnail = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
+    thumbnail = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
+    banner_quote=models.CharField(max_length=160, default="")
 
     class Meta:
         verbose_name_plural = 'Activities'
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('Activities:activity-detail', kwargs={
+            'slug': self.slug
+        })
 
 def slug_generator(sender, instance, *args, **kwargs):
     if not instance.slug:
