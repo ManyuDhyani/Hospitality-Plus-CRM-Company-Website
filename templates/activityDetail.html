@@ -82,7 +82,7 @@
         <!-- card right -->
         <div class = "product-content">
             <h2 class = "product-title" style="margin-top: 2rem;">{{ activity.title }}</h2>
-            <a href = "#" class = "product-link" style="background: #eb2618;">Recommended</a>
+            {% if activity.recommended == True %}<a href = "#" class = "product-link" style="background: #eb2618;">Recommended</a>{% endif %}
             <div class = "product-rating">
               <i class = "fas fa-star"></i>
               <i class = "fas fa-star"></i>
@@ -93,7 +93,7 @@
             </div>
   
             <div class = "product-price">
-              <p class = "last-price">Old Price: <span>₹257.00</span></p>
+              {% if activity.old_price %}<p class = "last-price">Old Price: <span>₹ {{ activity.old_price }}</span></p>{% endif %}
               <p class = "new-price">New Price: <span>₹ {{ activity.price }}</span></p>
             </div>
   
@@ -101,10 +101,10 @@
               <h2>Overview: </h2>
               <p>{{ activity.description }}</p>
               <ul>
-                <li><i class = "fas fa-mountain" style="color: white;"></i> &nbsp;Altitude: <span style="text-transform: lowercase;">{{ activity.altitude }}</span></li>
-                <li><i class="far fa-calendar-alt"></i> &nbsp; Duration: <span>{{ activity.duration_days }}</span></li>
-                <li><i class="fas fa-dumbbell"></i> &nbsp;Difficulty: <span>{{ activity.difficulty }}</span></li>
-                <li><i class = "fas fa-route" style="color: white;"></i> &nbsp; Distance: <span style="text-transform: capitalize;">{{ activity.distance }}</span></li>
+                {% if activity.altitude %}<li><i class = "fas fa-mountain" style="color: white;"></i> &nbsp;Altitude: <span style="text-transform: lowercase;">{{ activity.altitude }}</span></li>{% endif %}
+                {% if activity.duration_days %}<li><i class="far fa-calendar-alt"></i> &nbsp; Duration: <span>{{ activity.duration_days }}</span></li>{% endif %}
+                {% if activity.difficulty %}<li><i class="fas fa-dumbbell"></i> &nbsp;Difficulty: <span>{{ activity.difficulty }}</span></li>{% endif %}
+                {% if activity.distance %}<li><i class = "fas fa-route" style="color: white;"></i> &nbsp; Distance: <span style="text-transform: capitalize;">{{ activity.distance }}</span></li>{% endif %}
                 <li><i class = "fas fa-map-marked-alt" style="color: white;"></i> &nbsp; Location: <span>{{ activity.location }}</span></li>
               </ul>
             </div>
@@ -120,13 +120,15 @@
           </div>
         </div>
       </div>
-  
-      <div class="container" style="max-width: 1100px; margin: auto auto; padding: 2rem 1rem;; margin-top: -8%;">
-        <div class="col-12">
-          <h2 class = "product-title" style="margin-top: 2rem;">About {{ activity.title }}</h2>
-            {{ activity.content | safe }}
+    
+      {% if activity.content %}
+        <div class="container" style="max-width: 1100px; margin: auto auto; padding: 2rem 1rem;; margin-top: -8%;">
+            <div class="col-12">
+              <h2 class = "product-title" style="margin-top: 2rem;">About {{ activity.title }}</h2>
+                {{ activity.content | safe }}
+            </div>
         </div>
-    </div>
+      {% endif %}
 
     <!-- banner section starts  -->
     
@@ -135,7 +137,7 @@
       <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
           <span>start your adventures</span>
           <h3>Let's Explore {{ activity.title }}</h3>
-          <p>{{activity.banner_quote}}</p>
+          {% if activity.banner_quote %}<p>{{activity.banner_quote}}</p>{% endif %}
           <a href="#book-form" class="btn">book now</a>
       </div>
   

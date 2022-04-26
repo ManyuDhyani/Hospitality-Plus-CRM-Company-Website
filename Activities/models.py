@@ -19,12 +19,12 @@ class Activities(models.Model):
     slug = models.SlugField(max_length=250, null=True, blank=True)
     thumbnail = models.ImageField(upload_to='upload/activities')
     recommended = models.BooleanField(null=True, blank=True, default=False)
-    altitude = models.CharField(max_length=20, default="")
-    duration_days = models.CharField(max_length=20, default="")
-    difficulty = models.CharField(max_length=20, default="")
+    altitude = models.CharField(max_length=20, null=True, blank=True)
+    duration_days = models.CharField(max_length=20, null=True, blank=True)
+    difficulty = models.CharField(max_length=20, null=True, blank=True)
     location = models.CharField(max_length=40)
-    distance = models.CharField(max_length=20, default="")
-    old_price = models.CharField(max_length=20, default="xxxxx")
+    distance = models.CharField(max_length=20, null=True, blank=True)
+    old_price = models.CharField(max_length=20, null=True, blank=True)
     price = models.CharField(max_length=20)
     description = models.TextField(max_length=250)
     category = models.ForeignKey(ActivitiesCategories, on_delete=models.SET_NULL, null=True)
@@ -32,7 +32,7 @@ class Activities(models.Model):
     thumbnail = models.ImageField(upload_to='uplo ad/activities', default="images/whiteBG.jpg")
     thumbnail = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
     thumbnail = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
-    banner_quote=models.CharField(max_length=160, default="")
+    banner_quote=models.CharField(max_length=160, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Activities'
