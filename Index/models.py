@@ -35,6 +35,9 @@ class Gallery(models.Model):
     recommended = models.BooleanField(null=True, blank=True, default=False)
     location = models.CharField(max_length=40)
 
+    class Meta:
+        verbose_name_plural = "Gallery"
+
 class Testimonials(models.Model):
     name=models.CharField(max_length=20)
     profile_picture = models.ImageField(upload_to='upload/profilePicture/%Y/%m/%d')
@@ -42,11 +45,17 @@ class Testimonials(models.Model):
     review = models.TextField(max_length=150)
     recommended = models.BooleanField(null=True, blank=True, default=False)
 
+    class Meta:
+        verbose_name_plural = "Testimonials"
+
 class ContactDetails(models.Model):
     office_location = models.CharField(max_length=40)
     office_phone = models.CharField(max_length=30)
     office_email = models.EmailField()
     office_timings=models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name_plural = "ContactDetails"
 
 class Quotes(models.Model):
     header=models.CharField(max_length=160)
@@ -54,3 +63,21 @@ class Quotes(models.Model):
     testimonials=models.CharField(max_length=250)
     bottom_banner=models.CharField(max_length=160)
     footer=models.CharField(max_length=80)
+
+    class Meta:
+        verbose_name_plural = "Quotes"
+
+class Blogs(models.Model):
+    title = models.CharField(max_length=100)
+    overview = models.TextField(null=True, blank=True)
+    timestamp = models.DateTimeField()
+    author = models.CharField(max_length=40)
+    thumbnail = models.URLField(max_length=250)
+    blog_url = models.URLField(max_length=250, default="https://www.hashstrix.com/tag/traveloft/")
+    recommended = models.BooleanField(null=True, blank=True, default=False)
+
+    class Meta:
+        verbose_name_plural = "Blogs"
+
+    def __str__(self):
+        return self.title

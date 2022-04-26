@@ -259,48 +259,22 @@
         </div>
     
         <div class="box-container">
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="150">
-                <div class="image">
-                    <img src="images/blog-1.jpg" alt="">
-                </div>
-                <div class="content">
-                    <a href="#" class="link">Life is a journey, not a destination</a>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, natus!</p>
-                    <div class="icon">
-                        <a href="#"><i class="fas fa-clock"></i> 21st may, 2021</a>
-                        <a href="#"><i class="fas fa-user"></i> by admin</a>
+            
+            {% for blog in blogs %}
+                <div class="box" data-aos="fade-up" data-aos-delay="150">
+                    <div class="image">
+                        <img src="{{ blog.thumbnail }}" alt="">
+                    </div>
+                    <div class="content">
+                        <a href="{{ blog.blog_url }}" class="link">{{ blog.title }}</a>
+                        <p>{{ blog.overview|truncatechars:80 }}</p>
+                        <div class="icon">
+                            <a href="{{ blog.blog_url }}"><i class="fas fa-clock"></i>{{ blog.timestamp|timesince }} Ago</a>
+                            <a href="{{ blog.blog_url }}"><i class="fas fa-user"></i> {{ blog.author }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="300">
-                <div class="image">
-                    <img src="images/blog-2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <a href="#" class="link">Life is a journey, not a destination</a>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, natus!</p>
-                    <div class="icon">
-                        <a href="#"><i class="fas fa-clock"></i> 21st may, 2021</a>
-                        <a href="#"><i class="fas fa-user"></i> by admin</a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="box" data-aos="fade-up" data-aos-delay="450">
-                <div class="image">
-                    <img src="images/blog-3.jpg" alt="">
-                </div>
-                <div class="content">
-                    <a href="#" class="link">Life is a journey, not a destination</a>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, natus!</p>
-                    <div class="icon">
-                        <a href="#"><i class="fas fa-clock"></i> 21st may, 2021</a>
-                        <a href="#"><i class="fas fa-user"></i> by admin</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
     
         </div>
     
