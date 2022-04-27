@@ -1,5 +1,6 @@
 from django.db import models
 from Activities.models import ActivitiesCategories
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Video(models.Model):
     header_Image = models.ImageField(upload_to ='uploads/images/%Y/%m/%d')
@@ -83,3 +84,31 @@ class Blogs(models.Model):
 
     def __str__(self):
         return self.title
+
+class Newsletter(models.Model):
+    email = models.EmailField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name_plural = "Newsletters"
+
+class TermsCondition(models.Model):
+    content = RichTextUploadingField()
+
+    class Meta:
+        verbose_name_plural = "Terms & Conditions"
+
+class AboutUs(models.Model):
+    content = RichTextUploadingField()
+
+    class Meta:
+        verbose_name_plural = "About Us"
+
+class PrivacyPolicy(models.Model):
+    content = RichTextUploadingField()
+
+    class Meta:
+        verbose_name_plural = "Privacy Policy"
