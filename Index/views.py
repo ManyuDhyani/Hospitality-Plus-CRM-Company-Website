@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
+import requests
+
 from .models import ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs
 from Activities.models import Activities
-import requests
 
 #Index page function
 def index(request):
@@ -39,3 +41,10 @@ def index(request):
         }
 
     return render(request, "index.html", context)
+
+class galleryView(ListView):
+    model = Gallery 
+    paginate_by = 6
+    context_object_name = 'gallery'
+    template_name = 'gallery.html'
+    ordering = ['-modified']

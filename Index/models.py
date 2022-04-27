@@ -34,6 +34,8 @@ class Gallery(models.Model):
     image = models.ImageField(upload_to='upload/gallery/%Y/%m/%d')
     recommended = models.BooleanField(null=True, blank=True, default=False)
     location = models.CharField(max_length=40)
+    timestamp = models.DateTimeField(auto_now_add=True, null= True, blank = True)
+    modified = models.DateTimeField(auto_now=True, null= True, blank = True)
 
     class Meta:
         verbose_name_plural = "Gallery"
