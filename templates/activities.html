@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- custom js file link  -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+<body>
+    <!-- header section starts  -->
+    {% include 'navbar.html' %}
+    <!-- header section closed -->
+
+    <!-- activities section starts  -->
+    
+    <section class="destination" id="destination">
+    
+        <div class="heading" style="padding-top: 4.8rem;">
+            <span>our destination</span>
+            <h1>make yours destination</h1>
+        </div>
+        
+        <div class="box-container infinite-container">
+            
+            {% for activity in activities %}
+                <div class="box infinite-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="image">
+                        <img src="{{activity.thumbnail.url}}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>{{activity.title}}</h3>
+                        <p>{{activity.description}}</p>
+                        <a href="{{activity.get_absolute_url}}">read more <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            {% endfor %}
+    
+        </div>
+        {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+        {% endif %}
+        <div class="d-flex justify-content-center" style="display:none;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </section>
+
+<script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/infinite.min.js' %}"></script>
+<script>
+    var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0],
+    handler: function(direction) {
+
+    },
+    offset: 'bottom-in-view',
+
+    onBeforePageLoad: function () {
+    $('.spinner-border').show();
+    },
+    onAfterPageLoad: function () {
+    $('.spinner-border').hide();
+    }
+
+    });
+
+</script>
+    
+    <!-- activities section ends -->
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

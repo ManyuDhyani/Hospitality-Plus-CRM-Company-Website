@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic.list import ListView
 
 from Index.models import ContactDetails
 from .models import Activities
@@ -8,3 +9,9 @@ def activityDetail(request, slug):
     contact = ContactDetails.objects.first()
     context={'activity':activity, 'contact':contact}
     return render(request, "activityDetail.html", context)
+
+class activitiesView(ListView):
+    model = Activities
+    paginate_by = 6
+    context_object_name = 'activities'
+    template_name = 'activities.html'
