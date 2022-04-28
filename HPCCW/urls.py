@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from ckeditor_uploader import views
-from Index.views import index, galleryView
+from Index.views import index, galleryView, aboutus
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,8 +14,11 @@ urlpatterns = [
     path('booking/', include('CRM.urls', namespace='CRM')),
     path('dashboard/', include('Dashboard.urls', namespace='Dashboard')),
     path('activities/', include('Activities.urls', namespace='Activities')),
+
+    #Index app urls
     path('', index, name="index"),
-    path('gallery/', galleryView.as_view(), name="gallery")
+    path('gallery/', galleryView.as_view(), name="gallery"),
+    path('about-us/', aboutus, name="aboutus"),
 ]
 
 if settings.DEBUG:

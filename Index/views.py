@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 import requests
 
-from .models import ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs
+from .models import AboutUs, ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs
 from Activities.models import Activities
 
 #Index page function
@@ -48,3 +48,12 @@ class galleryView(ListView):
     context_object_name = 'gallery'
     template_name = 'gallery.html'
     ordering = ['-modified']
+
+# class aboutus(ListView):
+#     queryset = AboutUs.objects.first()
+#     template_name = 'aboutus.html'
+#     context_object_name = 'aboutus'
+
+def aboutus(request):
+    aboutus = AboutUs.objects.first()
+    return render(request, 'aboutus.html', {'aboutus': aboutus})

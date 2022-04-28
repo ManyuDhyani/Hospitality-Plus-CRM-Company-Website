@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>
+
+    </title>
+    {% endblock %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- custom js file link  -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+<body>
+    <!-- header section starts  -->
+    {% include 'navbar.html' %}
+    <!-- header section closed -->
+    
+    {% block content %}
+    {% endblock content %}
+
+    <!-- footer section starts  -->
+    {% include 'footer.html' %}
+    <!-- footer section closed -->
+
+</body>
+</html>

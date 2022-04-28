@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
+    <title>
+         About us
+    </title>
+    {% endblock %}
+       
+{% block content %}
+    <!-- about section starts  -->
+    
+    <section class="destination" id="destination">
+    
+        <div class="heading" style="padding-top: 6rem;">
+            <span>About us</span>
+            <h1>Explore to Know more</h1>
+            <div class="col-12">
+                <h2 class = "product-title" style="margin-top: 2rem; color:white;">{{ aboutus.content | safe }}</h2>
+            </div>
+        </div>
+    
+    </section>
+    
+    <!-- about section ends -->
+{% endblock content %}
