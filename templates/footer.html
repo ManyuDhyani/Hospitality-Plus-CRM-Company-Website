@@ -36,11 +36,12 @@
     
             <div class="box" data-aos="fade-up" data-aos-delay="600">
                 <h3>newsletter</h3>
-                <p>subscribe for latest updates</p>
-                <form action="">
-                    <input type="email" name="" placeholder="enter your email" class="email" id="">
-                    <input type="submit" value="subscribe" class="btn">
-                </form>
+                <p>subscribe for latest offers, events and much more.</p>
+                <form action="." method="POST">
+                    {% csrf_token %}
+                      <input type="email" name="email" placeholder="enter your email" class="email">
+                      <button type="submit" class="btn">Subscribe</button>
+                  </form>
             </div>
     
         </div>

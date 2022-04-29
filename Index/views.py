@@ -4,6 +4,7 @@ import requests
 
 from .models import AboutUs, ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs
 from Activities.models import Activities
+from CRM.models import Newsletter
 
 #Index page function
 def index(request):
@@ -28,6 +29,13 @@ def index(request):
             blog_url = "https://www.hashstrix.com/post/" + i['slug'] + "/"
     )
     blogs = Blogs.objects.filter(recommended=True)[:3]
+
+    # For Newsletter
+    if request.method == "POST":
+        email = request.POST["email"]
+        new_newsletter_signup = Newsletter()
+        new_newsletter_signup.email = email
+        new_newsletter_signup.save()
     
     context={
         'videos':videos, 
