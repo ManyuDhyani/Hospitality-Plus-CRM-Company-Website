@@ -85,16 +85,6 @@ class Blogs(models.Model):
     def __str__(self):
         return self.title
 
-class Newsletter(models.Model):
-    email = models.EmailField()
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.email
-
-    class Meta:
-        verbose_name_plural = "Newsletters"
-
 class TermsCondition(models.Model):
     content = RichTextUploadingField()
 
