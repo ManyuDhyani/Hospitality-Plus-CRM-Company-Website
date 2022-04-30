@@ -18,12 +18,12 @@
     
             <div class="box" data-aos="fade-up" data-aos-delay="300">
                 <h3>quick links</h3>
-                <a href="#home" class="links"> <i class="fas fa-arrow-right"></i> home </a>
-                <a href="#about" class="links"> <i class="fas fa-arrow-right"></i> about </a>
-                <a href="#destination" class="links"> <i class="fas fa-arrow-right"></i> destination </a>
-                <a href="#services" class="links"> <i class="fas fa-arrow-right"></i> services </a>
-                <a href="#gallery" class="links"> <i class="fas fa-arrow-right"></i> gallery </a>
-                <a href="#blogs" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
+                <a href="/" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="{% url 'Activities:activities' %}" class="links"> <i class="fas fa-arrow-right"></i> destination </a>
+                <a href="{% url 'gallery' %}" class="links"> <i class="fas fa-arrow-right"></i> gallery </a>
+                <a href="https://www.hashstrix.com/tag/traveloft/" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
+                <a href="{% url 'privacyPolicy' %}" class="links"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
+                <a href="{% url 'termsCondition' %}" class="links"> <i class="fas fa-arrow-right"></i> Terms & Condition </a>
             </div>
     
             <div class="box" data-aos="fade-up" data-aos-delay="450">

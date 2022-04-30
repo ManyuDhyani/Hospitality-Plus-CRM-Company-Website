@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from ckeditor_uploader import views
-from Index.views import index, galleryView, aboutus
+from Index.views import index, galleryView, aboutus, privacyPolicy, termsCondition
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,6 +19,8 @@ urlpatterns = [
     path('', index, name="index"),
     path('gallery/', galleryView.as_view(), name="gallery"),
     path('about-us/', aboutus, name="aboutus"),
+    path('privacy-policy/', privacyPolicy, name="privacyPolicy"),
+    path('terms-and-condition/', termsCondition, name="termsCondition"),
 ]
 
 if settings.DEBUG:

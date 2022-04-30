@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 import requests
 
-from .models import AboutUs, ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs
+from .models import AboutUs, ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs, PrivacyPolicy, TermsCondition
 from Activities.models import Activities
 from CRM.models import Newsletter
 
@@ -57,11 +57,14 @@ class galleryView(ListView):
     template_name = 'gallery.html'
     ordering = ['-modified']
 
-# class aboutus(ListView):
-#     queryset = AboutUs.objects.first()
-#     template_name = 'aboutus.html'
-#     context_object_name = 'aboutus'
-
 def aboutus(request):
     aboutus = AboutUs.objects.first()
     return render(request, 'aboutus.html', {'aboutus': aboutus})
+
+def privacyPolicy(request):
+    privacyAndTerms = PrivacyPolicy.objects.first()
+    return render(request, 'privacyAndTerms.html', {'privacyAndTerms': privacyAndTerms})
+
+def termsCondition(request):
+    privacyAndTerms = TermsCondition.objects.first()
+    return render(request, 'privacyAndTerms.html', {'privacyAndTerms': privacyAndTerms})
