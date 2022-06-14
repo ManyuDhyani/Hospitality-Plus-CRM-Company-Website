@@ -5,9 +5,11 @@ from Index.models import ContactDetails
 from .models import Activities
 
 def activityDetail(request, slug):
+    recommendations = Activities.objects.filter(recommended=True)[:4]
+
     activity = get_object_or_404(Activities, slug=slug)
     contact = ContactDetails.objects.first()
-    context={'activity':activity, 'contact':contact}
+    context={'activity':activity, 'contact': contact, "recommendations": recommendations}
     return render(request, "activityDetail.html", context)
 
 class activitiesView(ListView):

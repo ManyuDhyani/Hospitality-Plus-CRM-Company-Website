@@ -30,9 +30,10 @@ class Activities(models.Model):
     category = models.ForeignKey(ActivitiesCategories, on_delete=models.SET_NULL, null=True)
     content = RichTextUploadingField(null=True, blank=True)
     thumbnail = models.ImageField(upload_to='uplo ad/activities', default="images/whiteBG.jpg")
-    thumbnail = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
-    thumbnail = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
-    banner_quote=models.CharField(max_length=160, null=True, blank=True)
+    thumbnail_2 = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
+    thumbnail_3 = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
+    thumbnail_4 = models.ImageField(upload_to='upload/activities', default="images/whiteBG.jpg")
+    banner_quote = models.CharField(max_length=160, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Activities'
