@@ -5,7 +5,7 @@ from Index.models import ContactDetails
 from .models import Activities
 
 def activityDetail(request, slug):
-    recommendations = Activities.objects.filter(recommended=True)[:4]
+    recommendations = Activities.objects.order_by('?')[:4]
 
     activity = get_object_or_404(Activities, slug=slug)
     contact = ContactDetails.objects.first()
@@ -17,3 +17,4 @@ class activitiesView(ListView):
     paginate_by = 6
     context_object_name = 'activities'
     template_name = 'activities.html'
+
