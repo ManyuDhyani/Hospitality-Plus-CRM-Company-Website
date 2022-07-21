@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import landingLeadFormView, thankyou, pie_chart_category, pie_chart_gender, bar_chart_lead_customer_ratio
+from .views import search, landingLeadFormView, thankyou, pie_chart_category, pie_chart_gender, bar_chart_lead_customer_ratio
 
 app_name = 'CRM'
 
 urlpatterns = [
+    path('search/', search, name='search'),
     path('book-your-spot/', landingLeadFormView.as_view(), name="Landing-Lead-Page"),
     path('success/', thankyou, name="Success"),
     path('pie-chart-category-attended/', pie_chart_category, name='pie-chart-category'),

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
+    <title>
+         Results
+    </title>
+    {% endblock %}
+       
+{% block content %}
+
+    <!-- activities section starts  -->
+
+    <section class="destination" id="destination">
+
+        <div class="heading" style="padding-top: 4.8rem;">
+            <span>Search Results</span>
+        </div>
+
+        <div class="box-container infinite-container">
+
+        {% if activities %}
+            {% for activity in activities %}
+                <div class="box infinite-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="image">
+                        <img src="{{activity.thumbnail.url}}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>{{activity.title}}</h3>
+                        <p>{{activity.description}}</p>
+                        <a href="{{activity.get_absolute_url}}">read more <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="content" style="color:white;text-align: center;font-size: 15px;">
+                <h3><p>Your search did not match any Activity.<br></h3>
+
+                <br>Suggestions:<br>
+                <br>•Make sure that all words are spelled correctly.
+                <br>•Try different keywords.
+                <br>•Try more general keywords.
+                <br>•Try fewer keywords.</p>
+              </div>
+        {% endif %}
+        </div>
+    </section>
+
+    <!-- activities section ends -->
+
+{% endblock content %}

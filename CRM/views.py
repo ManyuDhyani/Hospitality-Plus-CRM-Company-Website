@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.contrib.admin.views.decorators import staff_member_required
 
 from CRM.models import Customer
 from .forms import LeadForm
-
+from Activities.models import Activities
+from Index.models import ContactDetails
 
 class landingLeadFormView(generic.CreateView):
     template_name = 'landing.html'
@@ -95,3 +96,21 @@ def bar_chart_lead_customer_ratio(request):
         'labels': labels,
         'data': data,
     })
+
+
+def search(request):
+    contact = ContactDetails.objects.first()
+    query = request.GET.get('search')
+    print(query)
+    activities = Activities.objects.all()
+    search_result = activities.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query)
+        ).distinct()
+
+    print(search_result)
+    context = {
+        'activities': search_result,
+        'contact': contact
+    }
+    return render(request, 'search.html', context)

@@ -65,10 +65,10 @@
     
     <section class="book-form" id="book-form">
     
-        <form action="">
+        <form action="{% url 'CRM:search' %}">
             <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
                 <span>where to?</span>
-                <input type="text" placeholder="place name" value="">
+                <input type="text" name="search" placeholder="place name" value="">
             </div>
             <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
                 <span>when?</span>
