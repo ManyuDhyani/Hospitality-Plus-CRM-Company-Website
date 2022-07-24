@@ -23,3 +23,8 @@ class CustomerAdmin(ImportExportModelAdmin, SimpleHistoryAdmin):
     save_on_top = True
 
 admin.site.register(Customer, CustomerAdmin)
+
+class PageViewAdmin(SimpleHistoryAdmin):
+    list_display = ["id", "ip", 'page', 'timestamp']
+    date_hierarchy = 'timestamp'
+admin.site.register(PageView, PageViewAdmin)

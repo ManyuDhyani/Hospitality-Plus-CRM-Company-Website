@@ -84,3 +84,12 @@ class Newsletter(models.Model):
 
     class Meta:
         verbose_name_plural = "Newsletters Emails"
+
+
+class PageView(models.Model):
+    ip = models.CharField(max_length=50)
+    page = models.CharField(max_length=100)
+    timestamp = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        return 'Viewed by {} -> post {}'.format(self.ip, self.page)

@@ -4,7 +4,16 @@ import requests
 
 from .models import AboutUs, ContactDetails, Gallery, Quotes, Testimonials, Video, Services, Blogs, PrivacyPolicy, TermsCondition
 from Activities.models import Activities
-from CRM.models import Newsletter
+from CRM.models import Newsletter, PageView
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 #Index page function
 def index(request):
@@ -36,7 +45,11 @@ def index(request):
         new_newsletter_signup = Newsletter()
         new_newsletter_signup.email = email
         new_newsletter_signup.save()
-    
+
+    ip = get_client_ip(request)
+    if ip:
+        PageView.objects.get_or_create(ip=ip, page="Home Page")
+
     context={
         'videos':videos, 
         'activities':activities, 
@@ -59,12 +72,27 @@ class galleryView(ListView):
 
 def aboutus(request):
     aboutus = AboutUs.objects.first()
+
+    ip = get_client_ip(request)
+    if ip:
+        PageView.objects.get_or_create(ip=ip, page="About us")
+
     return render(request, 'aboutus.html', {'aboutus': aboutus})
 
 def privacyPolicy(request):
     privacyAndTerms = PrivacyPolicy.objects.first()
+
+    ip = get_client_ip(request)
+    if ip:
+        PageView.objects.get_or_create(ip=ip, page="Privacy Policy")
+
     return render(request, 'privacyAndTerms.html', {'privacyAndTerms': privacyAndTerms})
 
 def termsCondition(request):
     privacyAndTerms = TermsCondition.objects.first()
+
+    ip = get_client_ip(request)
+    if ip:
+        PageView.objects.get_or_create(ip=ip, page="Terms & Condition")
+
     return render(request, 'privacyAndTerms.html', {'privacyAndTerms': privacyAndTerms})

@@ -101,14 +101,14 @@ def bar_chart_lead_customer_ratio(request):
 def search(request):
     contact = ContactDetails.objects.first()
     query = request.GET.get('search')
-    print(query)
+
     activities = Activities.objects.all()
     search_result = activities.filter(
             Q(title__icontains=query) |
             Q(description__icontains=query)
         ).distinct()
 
-    print(search_result)
+
     context = {
         'activities': search_result,
         'contact': contact
